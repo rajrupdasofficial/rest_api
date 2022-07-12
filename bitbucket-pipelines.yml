@@ -19,20 +19,20 @@ pipelines:
             - pip install -r requirements.txt
               #- python backend/manage.py runserver
               #- python pyclient/basic.py
-      - step:
-         name: Lint with flake8
-         script:
-            # Enforce style consistency across Python projects https://flake8.pycqa.org/en/latest/manpage.html
-            - pip install flake8
-            - flake8
-      - step:
-         name: Coverage report
-         script:
-            - pip install coverage
-            -  coverage run backend/manage.py test
-            - coverage report
-      - step:
-         name: Django step testing
-         script:
-            - python manage.py test
+            - step:
+               name: Lint with flake8
+                script:
+                    # Enforce style consistency across Python projects https://flake8.pycqa.org/en/latest/manpage.html
+                - pip install flake8
+                - flake8
+            - step:
+               name: Coverage report
+               script:
+                - pip install coverage
+                -  coverage run backend/manage.py test
+                - coverage report
+            - step:
+               name: Django step testing
+                 script:
+                    - python manage.py test
           
