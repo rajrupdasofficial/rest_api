@@ -6,7 +6,7 @@
 image: python:3.9.7
 
 pipelines:
-  branches:
+  trigger:
     - master
   default:
     - parallel:
