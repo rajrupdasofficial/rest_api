@@ -6,8 +6,6 @@
 image: python:3.9.7
 
 pipelines:
-  branches:
-    - master
   default:
     - parallel:
       - step:
