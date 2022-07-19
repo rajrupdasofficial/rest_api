@@ -37,9 +37,15 @@ def product_alt_view(request, *args, **kwargs):
     method = request.method
 
     if method == "GET":
-        pass
-        queryset=Product.objects.all()
-        data=ProductSerializer(queryset,many=True).data
+        if pk is not None:
+            #queryset = Product.obejcts.filter(pk=pk)
+            #if not queryset.exist():
+                #raise Http404
+            obj=get_object_or_404(Product,pk=pk)
+            data=ProductSerializer(queryset,many=True).data
+            return Response()
+        queryset = Product.objects.all()
+        data = ProductSerializer(queryset,many=True).data
         return Response(data)
 
     if method == "POST":
